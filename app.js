@@ -34,30 +34,30 @@ const keyboard = new AudioKeys({
 keyboard.down((key) => {
     console.log(key);
     synth.triggerAttackRelease(key.frequency, "8n")
-    const newColor = randomColor[Math.floor(Math.random() * randomColor.length)];
-    document.body.style.backgroundColor = newColor;
+    const colorIndex = key.note % randomColor.length; // lines 37 - 38 are hand typed from Gemini 
+    const newColor = randomColor[colorIndex]; // hand typed from Gemini [END]
+    document.body.style.backgroundColor = newColor; 
 });
 
-var randomColor = [
-    "#F44336",
-    "#E91E63",
-    "#9C27B0",
-    "#673AB7",
-    "#3F51B5",
-    "#2196F3",
-    "#03A9F4",
-    "#00BCD4",
-    "#009688",
-    "#4CAF50",
-    "#8BC34A",
-    "#CDDC39",
-    "#FFEB3B",
-    "#FFC107",
-    "#FF9800",
-    "#FF5722",
-    "#795548",
-    "#9E9E9E",
-    "#607D8B"
+var randomColor = [ // the idea for this color array was inspired from this CodePen project, but I changed the colors to be more vibrant uses Coolors: https://codepen.io/ramoen/pen/oWeVJQ
+    "#ffbe0b", //yellow 
+    "#fb5607", //orange
+    "#ff006e", //pink
+    "#8338ec", // purple
+    "#3a86ff", // blue 
+    "#00f5d4", // mint green 
+    "#8ac926", // lime green 
+    "#ffd97d", // light yellow 
+    "#43bccd", // teal blue 
+    "#fbff12", // lemon yellow 
+    "#fc2f00", // red
+    "#c200fb", // neon purple 
+    "#820263", // dark purple 
+    "#04e762", // neon green 
+    "#f038ff", // magenta 
+    "#dd94e4", // lilac purple
+    "#168255", // forrest green 
+    "#000e7f", // dark blue 
 ];
 
 
