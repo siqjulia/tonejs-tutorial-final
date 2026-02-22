@@ -21,22 +21,45 @@ playBTN.addEventListener("click", () => {
 }); */
 
 const synth = new Tone.Synth({
-    oscillator: { 
+    oscillator: {
         type: "square",
     }
 }).toDestination();
 
 const keyboard = new AudioKeys({
     rows: 1,
-}); 
-
-keyboard.down((key) => { 
-    console.log(key); 
-    synth.triggerAttackRelease(key.frequency, "8n") 
-    const hue = Math.floor((key.note / 127) * 360); // this line is from Gemini, typed by hand.
-    document.body.style.backgroundColor = `hsl(${hue}, 70%, 50%)`; // this line is from Gemini, typed by hand. 
-}); 
+});
 
 
-  
+keyboard.down((key) => {
+    console.log(key);
+    synth.triggerAttackRelease(key.frequency, "8n")
+    const newColor = randomColor[Math.floor(Math.random() * randomColor.length)];
+    document.body.style.backgroundColor = newColor;
+});
+
+var randomColor = [
+    "#F44336",
+    "#E91E63",
+    "#9C27B0",
+    "#673AB7",
+    "#3F51B5",
+    "#2196F3",
+    "#03A9F4",
+    "#00BCD4",
+    "#009688",
+    "#4CAF50",
+    "#8BC34A",
+    "#CDDC39",
+    "#FFEB3B",
+    "#FFC107",
+    "#FF9800",
+    "#FF5722",
+    "#795548",
+    "#9E9E9E",
+    "#607D8B"
+];
+
+
+
 
