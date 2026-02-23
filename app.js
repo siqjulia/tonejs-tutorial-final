@@ -20,6 +20,13 @@ playBTN.addEventListener("click", () => {
     synth.triggerAttackRelease("C4", "2n"); 
 }); */
 
+addEventListener("mouseover", () => {
+    if(Tone.context.state != "running") { // make sure browser lets you play sound 
+        Tone.start();
+        console.log('audio can play now.')
+    }
+})
+
 const synth = new Tone.Synth({
     oscillator: {
         type: "square",
