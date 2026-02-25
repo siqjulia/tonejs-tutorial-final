@@ -37,13 +37,15 @@ const keyboard = new AudioKeys({
     rows: 1,
 });
 
-
 keyboard.down((key) => {
     console.log(key);
     synth.triggerAttackRelease(key.frequency, "8n")
     const colorIndex = key.note % randomColor.length; // lines 37 - 38 are hand typed from Gemini 
     const newColor = randomColor[colorIndex]; // hand typed from Gemini [END]
     document.body.style.backgroundColor = newColor; 
+
+    const noteName = Tone.Frequency(key.note, "midi").toNote(); 
+    console.log(noteName); 
 });
 
 var randomColor = [ // the idea for this color array was inspired from this CodePen project, but I changed the colors to be more vibrant uses Coolors: https://codepen.io/ramoen/pen/oWeVJQ
@@ -67,6 +69,9 @@ var randomColor = [ // the idea for this color array was inspired from this Code
     "#000e7f", // dark blue 
 ];
 
-
+displayNote = () => {
+    let actualNote = document.getElementById("actual-note"); 
+    actualNote.innerHTML = ('This note is: ' + noteName); 
+};
 
 
