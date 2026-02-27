@@ -1,5 +1,6 @@
-#actual-note { 
-    color: white; 
+.text { 
+    color: white !important; 
     z-index: 10;
-    font-size: 40;
+    position: fixed; 
+    font-size: 40px; 
 }

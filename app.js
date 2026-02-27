@@ -46,6 +46,8 @@ keyboard.down((key) => {
 
     const noteName = Tone.Frequency(key.note, "midi").toNote(); 
     console.log(noteName); 
+
+    displayNote(noteName);
 });
 
 var randomColor = [ // the idea for this color array was inspired from this CodePen project, but I changed the colors to be more vibrant uses Coolors: https://codepen.io/ramoen/pen/oWeVJQ
@@ -69,9 +71,12 @@ var randomColor = [ // the idea for this color array was inspired from this Code
     "#000e7f", // dark blue 
 ];
 
-displayNote = () => {
-    let actualNote = document.getElementById("actual-note"); 
-    actualNote.innerHTML = ('This note is: ' + noteName); 
+function displayNote(noteName) {
+    let actualNote = document.querySelector(".text"); 
+    actualNote.innerHTML = ("This note is: " + noteName); 
+
+    actualNote.style.color = 'white'; 
+    actualNote.style.color = '40px';
 };
 
-
+console.log(document.querySelector(".text")); 
